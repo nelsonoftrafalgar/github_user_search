@@ -1,0 +1,48 @@
+.search-form {
+	height: 85px;
+	border-bottom: 1px solid #ececec;
+	align-items: center;
+	padding: 0 15px;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	@media screen and (min-width: 576px) {
+		justify-content: flex-start;
+	}
+}
+
+.search-input {
+	background-color: #f3f3f3;
+	color: #7d838b;
+	padding: 10px 20px 10px 35px;
+	border-radius: 10px;
+	margin-right: 15px;
+}
+
+.search-input-label {
+	position: relative;
+
+	&::before {
+		content: '';
+		background-image: url('https://www.pikpng.com/pngl/m/284-2848743_search-magnifying-glass-comments-icon-search-bar-png.png');
+		background-size: 15px 15px;
+		width: 15px;
+		height: 15px;
+		top: 50%;
+		left: 10px;
+		transform: translateY(-50%);
+		position: absolute;
+	}
+}
+
+.search-submit-button {
+	background-color: #452cdc;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 10px;
+
+	&:disabled {
+		opacity: 0.5;
+	}
+}

@@ -1,0 +1,40 @@
+.user-details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 25px 15px;
+}
+
+.user-image {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+.user-title {
+	margin: 20px 0;
+}
+.user-subtitle {
+	align-self: flex-start;
+	font-weight: 600;
+
+	@media screen and (min-width: 576px) {
+		align-self: center;
+	}
+}
+.user-bio {
+	align-self: flex-start;
+	font-size: 14px;
+	margin: 20px 0;
+	color: #7d838b;
+
+	@media screen and (min-width: 576px) {
+		align-self: center;
+	}
+}
+
+.user-repositories {
+	margin-top: 20px;
+	width: 100%;
+	list-style-type: none;
+	max-width: 600px;
+}

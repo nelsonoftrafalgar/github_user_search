@@ -1,0 +1,12 @@
+.search-results {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 25px 15px;
+}
+
+.users-list {
+	width: 100%;
+	list-style-type: none;
+	max-width: 600px;
+}

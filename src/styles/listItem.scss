@@ -1,0 +1,45 @@
+.list-item-link-text {
+	margin: 0 10px;
+	flex-grow: 1;
+}
+
+.list-item-button-text {
+	margin: 0 10px;
+	flex-grow: 1;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: start;
+}
+
+.list-item {
+	text-decoration: none;
+	display: flex;
+	color: #000;
+	font-weight: 600;
+	background-color: #f3f3f3;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px 10px;
+	border-radius: 10px;
+	margin-bottom: 5px;
+	&:hover {
+		cursor: pointer;
+		background-color: #c9c9c9;
+		transition: background-color 0.2s linear;
+	}
+}
+
+.list-item-repo-icon {
+	min-width: 15px;
+	min-height: 15px;
+	width: 15px;
+	height: 15px;
+}
+
+.list-item-arrow-icon {
+	min-width: 20px;
+	min-height: 20px;
+	width: 20px;
+	height: 20px;
+}

@@ -1,0 +1,16 @@
+@mixin button {
+	background-color: $bule;
+	color: $white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	cursor: pointer;
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	&:active {
+		opacity: 0.8;
+	}
+}

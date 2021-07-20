@@ -1,6 +1,6 @@
 .search-form {
 	height: 120px;
-	border-bottom: 1px solid #ececec;
+	border-bottom: 1px solid $light-grey;
 	align-items: center;
 	padding: 15px 15px;
 	display: flex;
@@ -8,7 +8,7 @@
 	justify-content: space-between;
 	width: 100%;
 
-	@media screen and (min-width: 576px) {
+	@media screen and (min-width: $sm-breakpoint) {
 		height: 85px;
 		padding: 0 15px;
 		justify-content: flex-start;
@@ -17,13 +17,13 @@
 }
 
 .search-input {
-	background-color: #f3f3f3;
+	background-color: $light-grey;
 	padding: 10px 20px 10px 35px;
 	border-radius: 10px;
 	width: 100%;
 
 	&::placeholder {
-		color: #7d838b;
+		color: $dark-grey;
 	}
 }
 
@@ -43,7 +43,7 @@
 		position: absolute;
 	}
 
-	@media screen and (min-width: 576px) {
+	@media screen and (min-width: $sm-breakpoint) {
 		width: unset;
 		margin-right: 15px;
 	}
@@ -54,37 +54,16 @@
 	display: flex;
 	justify-content: space-between;
 
-	@media screen and (min-width: 576px) {
+	@media screen and (min-width: $sm-breakpoint) {
 		width: unset;
 	}
 }
 
 .search-submit-button {
-	background-color: #452cdc;
-	color: #fff;
-	padding: 10px 20px;
-	border-radius: 10px;
-	cursor: pointer;
-
-	&:disabled {
-		opacity: 0.5;
-		cursor: not-allowed;
-	}
-
-	&:active {
-		opacity: 0.8;
-	}
+	@include button;
 }
 
 .clear-search-button {
-	background-color: #452cdc;
-	color: #fff;
-	padding: 10px 20px;
-	border-radius: 10px;
-	cursor: pointer;
+	@include button;
 	margin-left: 15px;
-
-	&:active {
-		opacity: 0.8;
-	}
 }

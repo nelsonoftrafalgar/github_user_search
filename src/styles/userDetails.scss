@@ -17,7 +17,7 @@
 	align-self: flex-start;
 	font-weight: 600;
 
-	@media screen and (min-width: 576px) {
+	@media screen and (min-width: $sm-breakpoint) {
 		align-self: center;
 	}
 }
@@ -25,10 +25,10 @@
 	align-self: flex-start;
 	font-size: 14px;
 	margin: 20px 0;
-	color: #7d838b;
+	color: $dark-grey;
 	max-width: 600px;
 
-	@media screen and (min-width: 576px) {
+	@media screen and (min-width: $sm-breakpoint) {
 		align-self: center;
 	}
 }
@@ -41,14 +41,6 @@
 }
 
 .user-back-button {
-	background-color: #452cdc;
-	color: #fff;
-	padding: 10px 20px;
-	border-radius: 10px;
-	cursor: pointer;
+	@include button;
 	margin-top: 15px;
-
-	&:active {
-		opacity: 0.8;
-	}
 }

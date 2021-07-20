@@ -14,9 +14,9 @@
 .list-item {
 	text-decoration: none;
 	display: flex;
-	color: #000;
+	color: $black;
 	font-weight: 600;
-	background-color: #f3f3f3;
+	background-color: $light-grey;
 	width: 100%;
 	align-items: center;
 	justify-content: space-between;
@@ -25,7 +25,7 @@
 	margin-bottom: 5px;
 	&:hover {
 		cursor: pointer;
-		background-color: #c9c9c9;
+		background-color: $grey;
 		transition: background-color 0.2s linear;
 	}
 }

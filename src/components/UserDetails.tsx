@@ -3,6 +3,7 @@ import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import ListItem from 'components/ListItem'
 import Loader from 'components/Loader'
 import axios from 'axios'
+import { dictionary } from 'dictionary/dictionary'
 
 const calcTotalPages = (totalRepos: number) => {
 	if (totalRepos < 100) return 1
@@ -31,6 +32,8 @@ interface IProps {
 	setUser: Dispatch<SetStateAction<string>>
 	setIsError: Dispatch<SetStateAction<boolean>>
 }
+
+const { about, topRepositories, backToSearch } = dictionary.details
 
 const UserDetails: FC<IProps> = ({ user, setUser, setIsError }) => {
 	const [details, setDetails] = useState<IDetails | null>(null)
@@ -72,9 +75,9 @@ const UserDetails: FC<IProps> = ({ user, setUser, setIsError }) => {
 		<div className='user-details'>
 			<img className='user-image' src={avatar_url} alt='user' />
 			<h1 className='user-title'>{login}</h1>
-			<p className='user-subtitle'>About</p>
+			<p className='user-subtitle'>{about}</p>
 			<p className='user-bio'>{bio || '...'}</p>
-			<p className='user-subtitle'>Top repositories</p>
+			<p className='user-subtitle'>{topRepositories}</p>
 			<ul className='user-repositories'>
 				{top_repos.length
 					? top_repos.map(({ name, html_url }) => (
@@ -83,7 +86,7 @@ const UserDetails: FC<IProps> = ({ user, setUser, setIsError }) => {
 					: '...'}
 			</ul>
 			<button className='user-back-button' onClick={() => setUser('')}>
-				Back to search results
+				{backToSearch}
 			</button>
 		</div>
 	)

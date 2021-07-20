@@ -1,8 +1,12 @@
+import { dictionary } from 'dictionary/dictionary'
+
+const { title, subtitle } = dictionary.error
+
 const Error = () => {
 	return (
 		<div className='error'>
-			<p>Ups... something's not right here</p>
-			<p>Refresh and try again</p>
+			<p>{title}</p>
+			<p>{subtitle}</p>
 		</div>
 	)
 }

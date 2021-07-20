@@ -1,6 +1,7 @@
 import { Dispatch, FC, FormEvent, SetStateAction, useState } from 'react'
 
 import axios from 'axios'
+import { dictionary } from 'dictionary/dictionary'
 
 interface IProps {
 	setSearchResults: Dispatch<SetStateAction<string[] | null>>
@@ -8,6 +9,8 @@ interface IProps {
 	setIsError: Dispatch<SetStateAction<boolean>>
 	setUser: Dispatch<SetStateAction<string>>
 }
+
+const { placeholder, search, clearSearch } = dictionary.search
 
 const Search: FC<IProps> = ({ setSearchResults, setIsLoading, setUser, setIsError }) => {
 	const [value, setValue] = useState('')
@@ -40,16 +43,16 @@ const Search: FC<IProps> = ({ setSearchResults, setIsLoading, setUser, setIsErro
 					value={value}
 					onChange={(e) => setValue(e.currentTarget.value)}
 					className='search-input'
-					placeholder='Search github users'
+					placeholder={placeholder}
 					type='text'
 				/>
 			</label>
 			<div className='search-button-wrapper'>
 				<button disabled={!value} className='search-submit-button'>
-					Search
+					{search}
 				</button>
 				<button onClick={handleClearSearch} type='button' className='clear-search-button'>
-					Clear search
+					{clearSearch}
 				</button>
 			</div>
 		</form>

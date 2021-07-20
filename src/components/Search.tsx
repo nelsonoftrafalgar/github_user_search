@@ -1,7 +1,7 @@
 import { Dispatch, FC, FormEvent, SetStateAction, useState } from 'react'
 
-import axios from 'axios'
 import { dictionary } from 'dictionary/dictionary'
+import { fetchSearchResults } from 'api/fetchSearchResults'
 
 interface IProps {
 	setSearchResults: Dispatch<SetStateAction<string[] | null>>
@@ -21,8 +21,8 @@ const Search: FC<IProps> = ({ setSearchResults, setIsLoading, setUser, setIsErro
 		setUser('')
 		setIsLoading(true)
 		try {
-			const response = await axios.get(`https://api.github.com/search/users?q=${value}`)
-			setSearchResults(response.data.items.map((item: { login: string }) => item.login))
+			const searchResults = await fetchSearchResults(value)
+			setSearchResults(searchResults)
 			setIsLoading(false)
 		} catch (error) {
 			setIsLoading(false)

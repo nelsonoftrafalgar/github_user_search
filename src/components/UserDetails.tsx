@@ -1,31 +1,10 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 
+import { IDetails } from 'api/types'
 import ListItem from 'components/ListItem'
 import Loader from 'components/Loader'
-import axios from 'axios'
 import { dictionary } from 'dictionary/dictionary'
-
-const calcTotalPages = (totalRepos: number) => {
-	if (totalRepos < 100) return 1
-	return Math.ceil(totalRepos / 100)
-}
-
-interface IDetails {
-	avatar_url: string
-	bio: string | null
-	login: string
-	top_repos: Pick<IRawDataItem, 'html_url' | 'name'>[]
-}
-
-interface IRawDataItem {
-	stargazers_count: number
-	name: string
-	html_url: string
-}
-
-interface IRawData {
-	data: IRawDataItem[]
-}
+import { fetchUser } from 'api/fetchUser'
 
 interface IProps {
 	user: string
@@ -41,23 +20,7 @@ const UserDetails: FC<IProps> = ({ user, setUser, setIsError }) => {
 	useEffect(() => {
 		const getUserDetails = async () => {
 			try {
-				const firstResponse = await axios.get(`https://api.github.com/users/${user}`)
-				const { avatar_url, bio, login, public_repos } = firstResponse.data
-				const totalPages = calcTotalPages(public_repos)
-				const urls = Array.from({ length: totalPages }, (_, page) =>
-					axios.get(`https://api.github.com/users/${user}/repos?per_page=100&page=${page + 1}`)
-				)
-
-				const secondResponse = await Promise.all(urls)
-				const top_repos = secondResponse
-					.reduce((acc: IRawDataItem[], val: IRawData) => {
-						acc.push(...val.data)
-						return acc
-					}, [])
-					.sort((a: IRawDataItem, b: IRawDataItem) => b.stargazers_count - a.stargazers_count)
-					.slice(0, 4)
-					.map(({ name, html_url }: IRawDataItem) => ({ name, html_url }))
-
+				const { avatar_url, bio, login, top_repos } = await fetchUser(user)
 				setDetails({ avatar_url, bio, login, top_repos })
 			} catch (error) {
 				setIsError(true)

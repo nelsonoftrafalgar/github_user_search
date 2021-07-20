@@ -1,8 +1,12 @@
-export interface IDetails {
+export interface IUser {
 	avatar_url: string
 	bio: string | null
 	login: string
-	top_repos: Pick<IRawDataItem, 'html_url' | 'name'>[]
+	public_repos: number
+}
+
+export interface IDetails extends Omit<IUser, 'public_repos'> {
+	top_repos: Omit<IRawDataItem, 'stargazers_count'>[]
 }
 
 export interface IRawDataItem {
@@ -13,4 +17,8 @@ export interface IRawDataItem {
 
 export interface IRawData {
 	data: IRawDataItem[]
+}
+
+export interface IRawSearchResults {
+	items: [{ login: string }]
 }

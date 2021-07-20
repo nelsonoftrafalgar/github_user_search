@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { IDetails } from 'api/types'
 import ListItem from 'components/ListItem'
 import Loader from 'components/Loader'
+import axios from 'axios'
 import { dictionary } from 'dictionary/dictionary'
 import { fetchUser } from 'api/fetchUser'
 import { useAppContext } from 'context/AppContext'
@@ -14,16 +15,20 @@ const UserDetails = () => {
 	const [details, setDetails] = useState<IDetails | null>(null)
 
 	useEffect(() => {
+		const source = axios.CancelToken.source()
 		const getUserDetails = async () => {
 			try {
-				const { avatar_url, bio, login, top_repos } = await fetchUser(user)
+				const { avatar_url, bio, login, top_repos } = await fetchUser(user, source.token)
 				setDetails({ avatar_url, bio, login, top_repos })
 			} catch (error) {
-				setIsError(true)
+				if (!axios.isCancel(error)) setIsError(true)
 			}
 		}
 
 		getUserDetails()
+		return () => {
+			source.cancel()
+		}
 	}, [user, setIsError])
 
 	if (!details) return <Loader />

@@ -1,4 +1,4 @@
-import { IRawSearchResults } from './types'
+import { IRawSearchResults } from 'api/types'
 import axios from 'axios'
 
 export const fetchSearchResults = async (value: string) => {

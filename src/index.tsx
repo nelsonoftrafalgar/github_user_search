@@ -1,10 +1,10 @@
 import 'styles/index.scss'
 
-import App from './App'
+import App from 'App'
 import AppContext from 'context/AppContext'
 import ReactDOM from 'react-dom'
 import { StrictMode } from 'react'
-import reportWebVitals from './reportWebVitals'
+import reportWebVitals from 'reportWebVitals'
 
 ReactDOM.render(
 	<StrictMode>

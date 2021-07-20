@@ -1,13 +1,16 @@
 import 'styles/index.scss'
 
 import App from './App'
+import AppContext from 'context/AppContext'
 import ReactDOM from 'react-dom'
 import { StrictMode } from 'react'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
 	<StrictMode>
-		<App />
+		<AppContext>
+			<App />
+		</AppContext>
 	</StrictMode>,
 	document.getElementById('root')
 )

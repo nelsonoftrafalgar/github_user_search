@@ -1,20 +1,16 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { IDetails } from 'api/types'
 import ListItem from 'components/ListItem'
 import Loader from 'components/Loader'
 import { dictionary } from 'dictionary/dictionary'
 import { fetchUser } from 'api/fetchUser'
-
-interface IProps {
-	user: string
-	setUser: Dispatch<SetStateAction<string>>
-	setIsError: Dispatch<SetStateAction<boolean>>
-}
+import { useAppContext } from 'context/AppContext'
 
 const { about, topRepositories, backToSearch } = dictionary.details
 
-const UserDetails: FC<IProps> = ({ user, setUser, setIsError }) => {
+const UserDetails = () => {
+	const { user, setUser, setIsError } = useAppContext()
 	const [details, setDetails] = useState<IDetails | null>(null)
 
 	useEffect(() => {

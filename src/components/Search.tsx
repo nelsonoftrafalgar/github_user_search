@@ -1,18 +1,13 @@
-import { Dispatch, FC, FormEvent, SetStateAction, useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 import { dictionary } from 'dictionary/dictionary'
 import { fetchSearchResults } from 'api/fetchSearchResults'
-
-interface IProps {
-	setSearchResults: Dispatch<SetStateAction<string[] | null>>
-	setIsLoading: Dispatch<SetStateAction<boolean>>
-	setIsError: Dispatch<SetStateAction<boolean>>
-	setUser: Dispatch<SetStateAction<string>>
-}
+import { useAppContext } from 'context/AppContext'
 
 const { placeholder, search, clearSearch } = dictionary.search
 
-const Search: FC<IProps> = ({ setSearchResults, setIsLoading, setUser, setIsError }) => {
+const Search = () => {
+	const { setSearchResults, setIsLoading, setUser, setIsError } = useAppContext()
 	const [value, setValue] = useState('')
 
 	const handleSearch = async (e: FormEvent) => {

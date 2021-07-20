@@ -3,27 +3,18 @@ import Loader from 'components/Loader'
 import Search from 'components/Search'
 import SearchResults from 'components/SearchResults'
 import UserDetails from 'components/UserDetails'
-import { useState } from 'react'
+import { useAppContext } from 'context/AppContext'
 
 const App = () => {
-	const [searchResults, setSearchResults] = useState<string[] | null>(null)
-	const [isLoading, setIsLoading] = useState(false)
-	const [user, setUser] = useState('')
-	const [isError, setIsError] = useState(false)
-
+	const { isError, isLoading, user, searchResults } = useAppContext()
 	if (isError) return <Error />
 
 	return (
 		<div className='app'>
-			<Search
-				setIsError={setIsError}
-				setUser={setUser}
-				setIsLoading={setIsLoading}
-				setSearchResults={setSearchResults}
-			/>
+			<Search />
 			{isLoading && <Loader />}
-			{user && <UserDetails setIsError={setIsError} setUser={setUser} user={user} />}
-			{searchResults && !user && <SearchResults setUser={setUser} searchResults={searchResults} />}
+			{user && <UserDetails />}
+			{searchResults && !user && <SearchResults />}
 		</div>
 	)
 }

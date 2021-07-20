@@ -13,4 +13,7 @@ export const dictionary = {
 		topRepositories: 'Top repositories',
 		backToSearch: 'Back to search results',
 	},
+	searchResults: {
+		emptyResults: 'Nothing found',
+	},
 }

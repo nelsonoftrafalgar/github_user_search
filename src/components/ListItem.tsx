@@ -12,7 +12,7 @@ const ListItem: FC<IProps> = ({ text, onClick, href }) => {
 	if (href) {
 		return (
 			<li>
-				<a className='list-item' href={href}>
+				<a className='list-item' href={href} target='_blank' rel='noreferrer noopener'>
 					<RepoIcon className='list-item-repo-icon' />
 					<span className='list-item-link-text'>{text}</span>
 					<ArrowIcon className='list-item-arrow-icon' />

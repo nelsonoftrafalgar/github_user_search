@@ -26,6 +26,7 @@
 	font-size: 14px;
 	margin: 20px 0;
 	color: #7d838b;
+	max-width: 600px;
 
 	@media screen and (min-width: 576px) {
 		align-self: center;
@@ -37,4 +38,17 @@
 	width: 100%;
 	list-style-type: none;
 	max-width: 600px;
+}
+
+.user-back-button {
+	background-color: #452cdc;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-top: 15px;
+
+	&:active {
+		opacity: 0.8;
+	}
 }

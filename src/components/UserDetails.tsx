@@ -36,7 +36,7 @@ const UserDetails = () => {
 	const { avatar_url, bio, login, top_repos } = details
 
 	return (
-		<div className='user-details'>
+		<div data-testid='USER_DETAILS' className='user-details'>
 			<img className='user-image' src={avatar_url} alt='user' />
 			<h1 className='user-title'>{login}</h1>
 			<p className='user-subtitle'>{about}</p>
@@ -49,7 +49,7 @@ const UserDetails = () => {
 					  ))
 					: '...'}
 			</ul>
-			<button className='user-back-button' onClick={() => setUser('')}>
+			<button data-testid='BACK_BUTTON' className='user-back-button' onClick={() => setUser('')}>
 				{backToSearch}
 			</button>
 		</div>

@@ -12,7 +12,13 @@ const ListItem: FC<IProps> = ({ text, onClick, href }) => {
 	if (href) {
 		return (
 			<li>
-				<a className='list-item' href={href} target='_blank' rel='noreferrer noopener'>
+				<a
+					data-testid='LIST_ITEM_LINK'
+					className='list-item'
+					href={href}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
 					<RepoIcon className='list-item-repo-icon' />
 					<span className='list-item-link-text'>{text}</span>
 					<ArrowIcon className='list-item-arrow-icon' />
@@ -23,7 +29,7 @@ const ListItem: FC<IProps> = ({ text, onClick, href }) => {
 
 	return (
 		<li>
-			<button onClick={onClick} className='list-item'>
+			<button data-testid='LIST_ITEM_BUTTON' onClick={onClick} className='list-item'>
 				<RepoIcon className='list-item-repo-icon' />
 				<span className='list-item-button-text'>{text}</span>
 				<ArrowIcon className='list-item-arrow-icon' />

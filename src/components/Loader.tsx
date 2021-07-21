@@ -1,6 +1,6 @@
 const Loader = () => {
 	return (
-		<div className='loader-wrapper'>
+		<div data-testid='LOADER' className='loader-wrapper'>
 			<div className='lds-ring'>
 				<div></div>
 				<div></div>

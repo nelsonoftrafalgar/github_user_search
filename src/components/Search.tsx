@@ -35,6 +35,7 @@ const Search = () => {
 		<form onSubmit={handleSearch} className='search-form'>
 			<label className='search-input-label'>
 				<input
+					data-testid='SEARCH_INPUT'
 					value={value}
 					onChange={(e) => setValue(e.currentTarget.value)}
 					className='search-input'
@@ -43,10 +44,15 @@ const Search = () => {
 				/>
 			</label>
 			<div className='search-button-wrapper'>
-				<button disabled={!value} className='search-submit-button'>
+				<button data-testid='SEARCH_BUTTON' disabled={!value} className='search-submit-button'>
 					{search}
 				</button>
-				<button onClick={handleClearSearch} type='button' className='clear-search-button'>
+				<button
+					data-testid='CLEAR_SEARCH_BUTTON'
+					onClick={handleClearSearch}
+					type='button'
+					className='clear-search-button'
+				>
 					{clearSearch}
 				</button>
 			</div>

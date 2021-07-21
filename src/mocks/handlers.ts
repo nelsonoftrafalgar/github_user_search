@@ -30,7 +30,7 @@ export const handlers = [
 		if (q === 'mockUser') {
 			return res(
 				ctx.json({
-					items: [{ login: 'mockUser1' }, { login: 'mockUser2' }, { login: 'mockUser3' }],
+					items: [{ login: 'mockUser' }, { login: 'mockUser1' }, { login: 'mockUser2' }],
 				})
 			)
 		} else {
